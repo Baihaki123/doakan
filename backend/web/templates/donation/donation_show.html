@@ -1,0 +1,65 @@
+{{ define "content" }}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-secondary">
+                    <h4 class="m-t-0 header-title text-white" id="header-berita">Detail Campaign</h4>
+                </div>
+                <div class="card-body">
+                    <form action="">
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label" for="judul">Nama</label>
+                            <div class="col-md-10">
+                                <input type="text" id="name" class="form-control" disabled name="nama" value="{{ .Nama }}" placeholder="Enter nama">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label" for="judul">Deskripsi Singkat</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" disabled name="deskripsi_singkat" value="{{ .DeskripsiSingkat }}" placeholder="Enter Deskripsi Singkat">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label" for="judul">Deskripsi</label>
+                            <div class="col-md-10">
+                                <textarea class="form-control" disabled cols="20" rows="5" name="deskripsi" placeholder="Enter Deskripsi">{{ .Deskripsi }}</textarea>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label" for="judul">Goal Amount</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" disabled name="goal_amount" value="{{ .GoalAmountFormatIDR }}" placeholder="Enter Goal Amount">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label" for="judul">Perks</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" disabled name="perks" value="{{ .Perks }}" placeholder="Enter Perks">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label" for="judul">Donatur Count</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" disabled name="donatur_count" value="{{ .DonaturCount }}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-md-2 col-form-label" disabled for="judul">Current Amount</label>
+                            <div class="col-md-10">
+                                <input type="text" class="form-control" disabled name="current_amount" value="{{ .CurrentAmountFormatIDR }}">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group mb-0 justify-content-end row">
+                            <div class="col-md-10">
+                                <button type="button" class="btn btn-secondary waves-effect waves-light" onclick="window.location='/donations'">Back</button>
+                            </div>
+                        </div>
+                    </form>
+                </div> <!-- end card-body-->
+            </div> <!-- end card-->
+        </div><!-- end col -->
+    </div>
+</div>
+{{ end }}

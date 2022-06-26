@@ -1,0 +1,33 @@
+{{ define "content" }}
+<!-- Start Content-->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="bg-picture card-box" id="hasil">
+        <h4 class="text-info m-t-0 header-title">Upload Foto</h4>
+        <hr>
+        <form action="/donations/image/{{ .ID }}" method="POST" enctype="multipart/form-data">
+        <div class="profile-info-name">
+            <div class="form-group row">
+                <label class="col-2 col-sm-2 col-form-label"> Foto </label>
+                <div class="col-md-9">
+                    <input type="file" class="dropify" name="file" data-max-file-size="3M" accept=".jpg, .png, .jpeg, .gif">
+                </div>
+            </div>
+        </div>
+            <div class="form-group mb-0 justify-content-end row">
+                <div class="col-md-10">
+                    <button type="submit" class="btn btn-info waves-effect waves-light">Simpan</button>
+                    <button type="button" class="btn btn-secondary waves-effect waves-light" onclick="window.location='/donations'">Batal</button>
+                </div>
+            </div>
+        </form>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- end row -->
+</div> <!-- end card-box -->
+{{ end }}

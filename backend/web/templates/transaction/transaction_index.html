@@ -1,0 +1,48 @@
+{{ define "content" }}
+<!-- Start Content-->
+<div class="container-fluid">
+	<!-- end row -->
+	<div class="row">
+		<div class="col-12">
+			<div class="card">
+				<div class="card-header bg-secondary">
+					<h4 class="m-t-0 header-title text-white" id="header-berita">List Of Transactions</h4>
+
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<table id="responsive-datatable" class="table table-bordered table-hover nowrap">
+							<thead>
+								<tr>
+                                    <th class="text-center">Donation Name</th>
+                                    <th class="text-center">Donatur Name</th>
+									<th class="text-center">Amount</th>
+									<th class="text-center">Date</th>
+									<th class="text-center">Status</th>
+								</tr>
+							</thead>
+							<tbody>
+                                {{ range .transactions }}
+                                <tr>
+                                    <td class="text-center">{{ .Donation.Nama }}</td>
+                                    <td class="text-center">{{ .User.Nama }}</td>
+                                    <td class="text-center">{{ .AmountFormatIDR }}</td>
+                                    <td class="text-center">{{ .CreatedAt.Format "Jan 02 2006 15:04:05" }}</td>
+                                    <td class="text-center">
+                                    {{ if eq .Status "pending" }}
+                                        <span class="badge badge-warning" style="font-size: 13px;">{{ .Status }}</span>
+                                    {{ else if eq .Status "paid" }}
+                                        <span class="badge badge-success" style="font-size: 13px;">{{ .Status }}</span>
+                                    {{ end }}
+                                    </td>
+                                </tr>
+                                {{ end }}
+							</tbody>
+						</table>
+					</div>
+				</div> <!-- end card-body-->
+			</div> <!-- end card-->
+		</div><!-- end col -->
+	</div>
+</div> <!-- container-fluid -->
+{{ end }}

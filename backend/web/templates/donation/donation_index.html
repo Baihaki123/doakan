@@ -1,0 +1,61 @@
+{{ define "content" }}
+<!-- Start Content-->
+<div class="container-fluid">
+	<!-- end row -->
+	<div class="row">
+		<div class="col-12">
+			<div class="card">
+				<div class="card-header bg-secondary">
+                    <div class="float-right">
+						<a href="/donations/new" class="btn btn-icon btn-rounded btn-sm btn-primary"> <i class="fas fa-plus"></i> </a>
+					</div>
+					<h4 class="m-t-0 header-title text-white" id="header-berita">List Of Donation</h4>
+
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<table id="responsive-datatable" class="table table-bordered table-hover nowrap">
+							<thead>
+								<tr>
+                                    <th>Image</th>
+									<th>Nama</th>
+									<th>Deskripsi Singkat</th>
+									<th>Goal Amount</th>
+									<th>Action</th>
+								</tr>
+							</thead>
+							<tbody>
+                                {{ range .donations }}
+                                <tr>
+                                    <td>
+                                        {{ if .DonationImages }}
+                                        <img class="rounded-circle img-thumbnail avatar-md" src="/{{ (index .DonationImages 0).Filename}}" width="60">
+                                        {{ end }}
+                                    </td>
+                                    <td>{{ .Nama }}</td>
+                                    <td>{{ .DeskripsiSingkat }}</td>
+                                    <td>{{ .GoalAmountFormatIDR }}</td>
+									<td>
+										<div class="btn-group">
+											<a href="/donations/edit/{{ .ID }}" class="btn btn-sm btn-icon btn-rounded btn-warning edit_btn" title="Edit">
+												<i class="fa fa-fw fa-pencil-alt"></i>
+											</a>
+											<a href="/donations/show/{{ .ID }}" class="btn btn-sm btn-icon btn-rounded btn-secondary edit_btn" title="Show">
+												<i class="fa fa-fw fa-eye"></i>
+											</a>
+											<a href="/donations/image/{{ .ID }}" class="btn btn-sm btn-icon btn-rounded btn-danger tombol-hapus" title="Upload">
+												<i class="fas fa-camera"></i>
+											</a>
+										</div>
+									</td>
+                                </tr>
+                                {{ end }}
+							</tbody>
+						</table>
+					</div>
+				</div> <!-- end card-body-->
+			</div> <!-- end card-->
+		</div><!-- end col -->
+	</div>
+</div> <!-- container-fluid -->
+{{ end }}

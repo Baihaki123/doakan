@@ -1,0 +1,54 @@
+{{ define "content" }}
+<!-- Start Content-->
+<div class="container-fluid">
+	<!-- end row -->
+	<div class="row">
+		<div class="col-12">
+			<div class="card">
+				<div class="card-header bg-secondary">
+                    <div class="float-right">
+						<a href="/users/new" class="btn btn-icon btn-rounded btn-sm btn-primary"> <i class="fas fa-plus"></i> </a>
+					</div>
+					<h4 class="m-t-0 header-title text-white" id="header-berita">List Of User</h4>
+
+				</div>
+				<div class="card-body">
+					<div class="table-responsive">
+						<table id="responsive-datatable" class="table table-bordered table-hover nowrap">
+							<thead>
+								<tr>
+                                    <th>Image</th>
+									<th>Nama</th>
+									<th>Email</th>
+									<th>Pekerjaan</th>
+									<th>Action</th>
+								</tr>
+							</thead>
+							<tbody>
+                                {{ range .users }}
+                                <tr>
+                                    <td><img class="rounded-circle img-thumbnail avatar-md" src="{{ .ImageProfile}}" width="60"></td>
+                                    <td>{{ .Nama }}</td>
+                                    <td>{{ .Email }}</td>
+                                    <td>{{ .Pekerjaan }}</td>
+									<td>
+										<div class="btn-group">
+											<a href="/users/edit/{{ .ID }}" class="btn btn-sm btn-icon btn-rounded btn-warning edit_btn" title="Edit">
+												<i class="fa fa-fw fa-pencil-alt"></i>
+											</a>
+											<a href="/users/avatar/{{ .ID }}" class="btn btn-sm btn-icon btn-rounded btn-danger tombol-hapus" title="Upload">
+												<i class="fas fa-camera"></i>
+											</a>
+										</div>
+									</td>
+                                </tr>
+                                {{ end }}
+							</tbody>
+						</table>
+					</div>
+				</div> <!-- end card-body-->
+			</div> <!-- end card-->
+		</div><!-- end col -->
+	</div>
+</div> <!-- container-fluid -->
+{{ end }}
